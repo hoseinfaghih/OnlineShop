@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdsController;
 use App\Http\Controllers\UserController;
 use App\Models\Ad;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,8 @@ Route::prefix('/user')->group(function () {
     Route::post('/check',[UserController::class,'check'])->name('user.check');
     Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
 });
+
+Route::get('/ad/{id}',[AdsController::class,'show'])->name('ad.show');
+// Route::get('/ad/{id}', function ($id) {
+//     return $id;
+// });

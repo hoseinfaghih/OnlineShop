@@ -13,7 +13,7 @@
             <li class="list-group-item">موبایل : {{$item['phone_number']}}</li>
         </ul>
         <div class="card-body">
-            <a href="#" class="card-link">اطلاعات بیشتر</a>
+            <a href="{{route('ad.show',$item['id'])}}" class="card-link">اطلاعات بیشتر</a>
         </div>
     </div>
     @endforeach

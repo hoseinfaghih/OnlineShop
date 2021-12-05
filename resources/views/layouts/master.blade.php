@@ -17,9 +17,7 @@
         <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
       </a>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">ثبت آگهی</a>
-        </li>
+        
         @if (!session()->has('LoggedUser'))
 
           <li class="nav-item">
@@ -29,6 +27,9 @@
             <a class="nav-link active" href="{{ route ('user.register') }}" style = "text-align: left" >ثبت نام</a>
           </li>
         @else
+        <li class="nav-item">
+          <a class="nav-link active" href="#">داشبورد</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{ route ('user.logout') }}" style = "text-align: left" >خروج از سایت</a>
         </li>
