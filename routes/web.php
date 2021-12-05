@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Models\Ad;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = Ad::paginate(8);
+    return view('welcome',['AdsInfo' => $data]);
 })->name('home');
 
 // Route::get('/user/login',[UserController::class,'login'])->name('user.login');
