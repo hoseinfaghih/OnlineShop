@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ad;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
 
 class AdsController extends Controller
 {
@@ -15,7 +16,8 @@ class AdsController extends Controller
         $data = Ad::where('id','=',$id)->first();
         $ok = [
             'AdInfo' => Ad::where('id','=',$id)->first(),
-            'UserInfo' => User::where('id','=',$data['user_id'])->first()
+            'UserInfo' => User::where('id','=',$data['user_id'])->first(),
+            'CategoryList' => Category::whereNull('parent_id')->get()
         ];
         // dd($ok);
         return view('showad',$ok);

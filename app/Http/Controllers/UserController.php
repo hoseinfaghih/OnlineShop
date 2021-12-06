@@ -5,14 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Category;
 
 class UserController extends Controller
 {
     function login (){
-        return view('login');
+        $data = [
+            'CategoryList' => Category::whereNull('parent_id')->get()
+        ];
+        return view('login' , $data);
     }
     function register (){
-        return view('register');
+        $data = [
+            'CategoryList' => Category::whereNull('parent_id')->get()
+        ];
+        return view('register' , $data);
     }
     function save (Request $request){
         $request->validate([

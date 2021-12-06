@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Models\Ad;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $data = Ad::paginate(8);
-    return view('welcome',['AdsInfo' => $data]);
+    $data = [
+        'AdsInfo' => Ad::paginate(8),
+        'CategoryList' => Category::whereNull('parent_id')->get()
+    ];
+    return view('welcome',$data);
 })->name('home');
 
 // Route::get('/user/login',[UserController::class,'login'])->name('user.login');
@@ -39,3 +44,4 @@ Route::get('/ad/{id}',[AdsController::class,'show'])->name('ad.show');
 // Route::get('/ad/{id}', function ($id) {
 //     return $id;
 // });
+Route::get('/category/{id}',[CategoryController::class,'show'])->name('category.show');

@@ -37,3 +37,11 @@
       </tr>
     </tbody>
 @endsection
+
+@section('sidebar')
+    @foreach ($CategoryList as $item)
+    <li class="nav-item" style = "clear: both;display: inline-block;overflow: hidden;white-space: nowrap;">
+        <a class="nav-link active" href="{{route('category.show' , $item['id'])}}">{{ $item['name']}}</a>
+    </li>
+    @endforeach
+@endsection

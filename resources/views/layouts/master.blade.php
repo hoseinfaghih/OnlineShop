@@ -55,11 +55,14 @@
   <div class="d-md-flex align-items-stretch">
       
 
-    <nav id="sidebar" style ="border-left:1px solid #ccc;">
-      <div class="p-4 pt-5">
+    <nav id="sidebar" style ="border-left:1px solid #ccc;text-align:right;">
+      {{-- <div class="p-4 pt-5">
+        <br> --}}
+        <br>
+        <br>
         <br>
         <h5>دسته بندی ها</h5>
-        <ul class="list-unstyled components mb-5">
+        {{-- <ul class="list-unstyled components mb-5">
           <li>
             <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">موضوع 1</a>
             <ul class="collapse list-unstyled" id="pageSubmenu1">
@@ -92,10 +95,13 @@
               
             </ul>
           </li>
+        </ul> --}}
+        <ul class="nav flex-column">
+          @yield('sidebar')
+            
         </ul>
         
-        
-      </div>
+      {{-- </div> --}}
     </nav>
     <!-- conttent -->
     <div id="content" class="p-4 p-md-5 pt-5" >

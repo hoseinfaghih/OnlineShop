@@ -1,7 +1,8 @@
 @extends('layouts.master');
 
 @section('content')
-    @foreach ($AdsInfo as $item)
+    
+@foreach ($AdsInfoOfCat as $item)
     <div class="card" style="width: 18rem;display:inline-block">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
@@ -18,7 +19,7 @@
     </div>
     @endforeach
     <span>
-        {{$AdsInfo->links()}}
+        {{$AdsInfoOfCat->links()}}
     </span>
     <style>
         .w-5{
@@ -35,7 +36,9 @@
     <br>
     <br>
     <br>
+
 @endsection
+
 
 @section('sidebar')
     @foreach ($CategoryList as $item)
