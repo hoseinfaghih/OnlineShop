@@ -35,7 +35,27 @@
         <th>موبایل</th>
         <td> {{ $AdInfo['phone_number']}}</td>
       </tr>
+      @if (session()->has('LoggedUser'))
+        <tr>
+          <th>افزودن به علاقه مندی ها</th>
+          <td>  
+            <form  action = "{{ route('ad.addtofav',$AdInfo['id']) }}" method = "get" class="spacer" action="" method="post">
+              <input class="submit" type="submit" value="افزودن" />
+            </form>
+          </td>
+        </tr>
+      @endif
     </tbody>
+    @if (Session::get('success'))
+        <div class = "alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif   
+    @if (Session::get('fail'))
+        <div class = "alert alert-danger">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
 @endsection
 
 @section('sidebar')

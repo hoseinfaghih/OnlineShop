@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             UsersTableSeeder::class,
             AdsTableSeeder::class,
+            AdminsTableSeeder::class,
         ]);
 
     }

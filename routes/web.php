@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FavController;
 use App\Http\Controllers\UserController;
 use App\Models\Ad;
 use App\Models\Category;
@@ -41,7 +42,9 @@ Route::prefix('/user')->group(function () {
 });
 
 Route::get('/ad/{id}',[AdsController::class,'show'])->name('ad.show');
+Route::get('ad/{id}/addtofav',[FavController::class,'add'])->name('ad.addtofav');
 // Route::get('/ad/{id}', function ($id) {
 //     return $id;
 // });
 Route::get('/category/{id}',[CategoryController::class,'show'])->name('category.show');
+Route::get('/showfavs',[FavController::class,'show'])->name('showfavorites');

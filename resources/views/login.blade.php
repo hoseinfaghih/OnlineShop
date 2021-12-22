@@ -6,7 +6,16 @@
 
 @section('content')
 <form action = "{{ route('user.check') }}" method="POST" >
-    
+    @if (Session::get('success'))
+        <div class = "alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif   
+    @if (Session::get('fail'))
+        <div class = "alert alert-danger">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
     @csrf
     <div class="form-group text-right">
         <label for="email" >ایمیل:</label>

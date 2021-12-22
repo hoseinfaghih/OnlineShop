@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src = "{{ asset ('js/app.js')}}"> </script>
     <title>Divar Cosplay</title>
 
@@ -29,6 +30,9 @@
         @else
         <li class="nav-item">
           <a class="nav-link active" href="#">داشبورد</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ route ('showfavorites') }}"> آگهی های محبوب من</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{ route ('user.logout') }}" style = "text-align: left" >خروج از سایت</a>
