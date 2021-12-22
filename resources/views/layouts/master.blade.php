@@ -11,6 +11,13 @@
 
     
 </head>
+<style>
+  body {
+   min-height: 400px;
+   margin-bottom: 100px;
+   clear: both;
+  }
+</style>
 <header>
   <nav class="navbar navbar-expand-sm bg-info navbar-dark fixed-top" >
     <div class="container-fluid">

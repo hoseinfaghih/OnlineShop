@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
 <table class="table">
     <tbody>
       <tr>
@@ -46,6 +47,7 @@
         </tr>
       @endif
     </tbody>
+    
     @if (Session::get('success'))
         <div class = "alert alert-success">
             {{ Session::get('success') }}
@@ -56,6 +58,33 @@
             {{ Session::get('fail') }}
         </div>
     @endif
+    
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>کامنت ها</th>
+        </tr>
+        @foreach ($CommentsList as $item)
+        <tr>
+            <th>{{ $item['username']}}</th>
+            <td>{{ $item['commenttext']}}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+    
+    @if (session()->has('LoggedUser'))
+    <form action = "{{ route ('addcomment',$AdInfo['id'])}}" method = "post" >
+      
+      @csrf
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">نظر خود را وارد کنید</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="comment" placeholder="نظر شما ..."></textarea>
+          <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+      </form>
+    @endif
+    
 @endsection
 
 @section('sidebar')

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavController;
 use App\Http\Controllers\UserController;
 use App\Models\Ad;
@@ -48,3 +49,4 @@ Route::get('ad/{id}/addtofav',[FavController::class,'add'])->name('ad.addtofav')
 // });
 Route::get('/category/{id}',[CategoryController::class,'show'])->name('category.show');
 Route::get('/showfavs',[FavController::class,'show'])->name('showfavorites');
+Route::post('/ad/{id}/addcomment',[CommentController::class,'add'])->name('addcomment');
