@@ -36,7 +36,7 @@
           </li>
         @else
         <li class="nav-item">
-          <a class="nav-link active" href="#">داشبورد</a>
+          <a class="nav-link active" href="{{ route ('dashboard') }}">داشبورد</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{ route ('showfavorites') }}"> آگهی های محبوب من</a>

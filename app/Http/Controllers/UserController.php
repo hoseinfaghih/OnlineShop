@@ -41,7 +41,7 @@ class UserController extends Controller
     }
     function check (Request $request){
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required|min:5:max:13'
         ]);
         $userinfo = User::where('email','=',$request->email)->first();
