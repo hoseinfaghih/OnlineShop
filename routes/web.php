@@ -44,16 +44,12 @@ Route::get('ad/{id}/addtofav',[FavController::class,'add'])->name('ad.addtofav')
 Route::get('/category/{id}',[CategoryController::class,'show'])->name('category.show');
 Route::get('/showfavs',[FavController::class,'show'])->name('showfavorites')->middleware('authcheck');
 
-// Route::prefix('/ad')->group(function() {
-//     Route::post('/{id}/addcomment',[CommentController::class,'add'])->name('addcomment');
-//     Route::post('/create',[AdsController::class,'create'])->name('ad.create');
-//     Route::post('/delete',[AdsController::class,'delete'])->name('ad.delete');
-//     Route::post('/update',[AdsController::class,'update'])->name('ad.update');
-// });
-Route::post('/ad/{id}/addcomment',[CommentController::class,'add'])->name('addcomment');
-Route::post('/ad/create',[AdsController::class,'create'])->name('ad.create');
-Route::post('/ad/delete',[AdsController::class,'delete'])->name('ad.delete');
-Route::post('/ad/update',[AdsController::class,'update'])->name('ad.update');
+Route::prefix('/ad')->group(function() {
+    Route::post('/{id}/addcomment',[CommentController::class,'add'])->name('addcomment');
+    Route::post('/create',[AdsController::class,'create'])->name('ad.create');
+    Route::post('/delete',[AdsController::class,'delete'])->name('ad.delete');
+    Route::post('/update',[AdsController::class,'update'])->name('ad.update');
+});
 
 Route::get('/dashboard', function (){
     $data = [
@@ -61,4 +57,4 @@ Route::get('/dashboard', function (){
         'MyAdsList' => Ad::where('user_id','=' , session('LoggedUser'))->get()
     ];
     return view('dashboard',$data);
-})->name('dashboard');
+})->name('dashboard')->middleware('authcheck');
