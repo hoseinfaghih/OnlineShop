@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Ad;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,9 @@ Route::get('/dashboard', function (){
     ];
     return view('dashboard',$data);
 })->name('dashboard')->middleware('authcheck');
+
+Route::get('/admin',[admin\MainController::class,'main'])->name('admin');
+Route::get('/admin/ad',[admin\MainController::class,'adedit'])->name('admin.adedit');
+Route::post('/admin/ad/create',[admin\MainController::class,'create'])->name('admin.create');
+Route::post('/admin/ad/update',[admin\MainController::class,'update'])->name('admin.update');
+Route::post('/admin/ad/delete',[admin\MainController::class,'delete'])->name('admin.delete');

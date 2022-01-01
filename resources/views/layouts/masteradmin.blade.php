@@ -19,36 +19,27 @@
   }
 </style>
 <header>
-  <nav class="navbar navbar-expand-sm bg-info navbar-dark fixed-top" >
+  <nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-top" >
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ route ('home') }}">
         <img src="/images/logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
       </a>
       <ul class="navbar-nav ml-auto">
         
-        @if (!session()->has('LoggedUser'))
+        
 
           <li class="nav-item">
-            <a class="nav-link active" href="{{ route ('user.login') }}" style = "text-align: left" >ورود</a>
+            <a class="nav-link active" href="{{ route('admin.adedit') }}" style = "text-align: left" >مدیریت آگهی ها</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{ route ('user.register') }}" style = "text-align: left" >ثبت نام</a>
+            <a class="nav-link active" href="#" style = "text-align: left" >مدیریت دسته بندیها</a>
           </li>
-        @else
+        
         <li class="nav-item">
-          <a class="nav-link active" href="{{ route ('dashboard') }}">داشبورد</a>
+          <a class="nav-link active" href="#">مدیریت کامنت ها</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="{{ route ('showfavorites') }}"> آگهی های محبوب من</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="{{ route ('user.logout') }}" style = "text-align: left" >خروج از سایت</a>
-        </li>
-        @endif
-       
-        <li class="nav-item">
-          <a class="nav-link active" href="{{route('admin')}}" style = "text-align: left" >مدیریت سایت</a>
-        </li>
+        
+        
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -72,7 +63,7 @@
         <br>
         <br>
         <br>
-        <h5>دسته بندی ها</h5>
+        <h5>خوش آمدید</h5>
         {{-- <ul class="list-unstyled components mb-5">
           <li>
             <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">موضوع 1</a>
@@ -123,13 +114,13 @@
 
 
   </div>  
-  <footer class="text-center text-white fixed-bottom bg-info">
+  <footer class="text-center text-white fixed-bottom bg-success">
     <!-- Grid container -->
     <div class="container p-4"></div>
     <!-- Grid container -->
     my Email : @hfaghih80@gmail.com
     <!-- Copyright -->
-    <div class="text-center p-3 bg-info" >
+    <div class="text-center p-3 bg-success" >
       !All rights reserved lmao
       
     </div>

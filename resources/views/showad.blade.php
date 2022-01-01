@@ -14,11 +14,29 @@
       </tr>
       <tr>
         <th>نام آگهی گذار</th>
-        <td>{{ $UserInfo['name']}}</td>
+        <td>
+          @php
+           if (is_null($UserInfo)){
+             echo "admine site";
+           }
+           else{
+              echo $UserInfo['name'];
+           }   
+          @endphp
+        </td>
       </tr>
       <tr>
         <th>ایمیل آگهی گذار</th>
-        <td> {{ $UserInfo['email'] }}</td>
+        <td> 
+          @php
+           if (is_null($UserInfo)){
+             echo "admin@divar.ir";
+           }
+           else{
+              echo $UserInfo['email'];
+           }   
+          @endphp
+        </td>
       </tr>
       <tr>
         <th>توضیحات</th>

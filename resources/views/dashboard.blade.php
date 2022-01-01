@@ -63,16 +63,6 @@
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
         <br>
         <form action="{{ route('ad.update') }}" method = "post">
-            @if (Session::get('success'))
-            <div class = "alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-            @endif   
-            @if (Session::get('fail'))
-                <div class = "alert alert-danger">
-                    {{ Session::get('fail') }}
-                </div>
-            @endif
             @csrf
             <div class="form-group">
                 <label for="Select1"> <b>آگهی قبلی که میخواهید ویرایشش کنید را انتخاب کنید</b></label>
@@ -121,16 +111,6 @@
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
         <br>
         <form action="{{ route('ad.delete') }}" method = "post">
-            @if (Session::get('success'))
-            <div class = "alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-            @endif   
-            @if (Session::get('fail'))
-                <div class = "alert alert-danger">
-                    {{ Session::get('fail') }}
-                </div>
-            @endif
             @csrf
             <div class="form-group">
                 <label for="Select1"> <b>آگهی قبلی که میخواهید حذفش کنید را انتخاب کنید</b></label>
