@@ -60,8 +60,26 @@ Route::get('/dashboard', function (){
     return view('dashboard',$data);
 })->name('dashboard')->middleware('authcheck');
 
-Route::get('/admin',[admin\MainController::class,'main'])->name('admin');
-Route::get('/admin/ad',[admin\MainController::class,'adedit'])->name('admin.adedit');
-Route::post('/admin/ad/create',[admin\MainController::class,'create'])->name('admin.create');
-Route::post('/admin/ad/update',[admin\MainController::class,'update'])->name('admin.update');
-Route::post('/admin/ad/delete',[admin\MainController::class,'delete'])->name('admin.delete');
+// Route::get('/admin',[admin\MainController::class,'main'])->name('admin');
+// Route::get('/admin/ad',[admin\MainController::class,'adedit'])->name('admin.adedit');
+// Route::post('/admin/ad/create',[admin\MainController::class,'create'])->name('admin.create');
+// Route::post('/admin/ad/update',[admin\MainController::class,'update'])->name('admin.update');
+// Route::post('/admin/ad/delete',[admin\MainController::class,'delete'])->name('admin.delete');
+
+Route::prefix('/admin')->group(function(){
+    Route::get('',[admin\MainController::class,'main'])->name('admin');
+    Route::prefix('/ad')->group(function(){
+        Route::get('',[admin\MainController::class,'adedit'])->name('admin.adedit');
+        Route::post('/create',[admin\MainController::class,'create'])->name('admin.create');
+        Route::post('/update',[admin\MainController::class,'update'])->name('admin.update');
+        Route::post('/delete',[admin\MainController::class,'delete'])->name('admin.delete');
+    });
+});
+Route::prefix('/admin/category')->group(function(){
+    Route::get('',[admin\CategoryController::class,'catedit'])->name('admin.catedit');
+    Route::post('/create',[admin\CategoryController::class,'create'])->name('admincat.create');
+    Route::post('/delete',[admin\CategoryController::class,'delete'])->name('admincat.delete');
+});
+// Route::get('/admin/category',[admin\CategoryController::class,'catedit'])->name('admin.catedit');
+// Route::post('/admin/category/create',[admin\CategoryController::class,'create'])->name('admincat.create');
+// Route::post('/admin/delete/delete',[admin\CategoryController::class,'delete'])->name('admincat.delete');

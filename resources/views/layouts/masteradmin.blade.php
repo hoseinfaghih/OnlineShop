@@ -32,7 +32,7 @@
             <a class="nav-link active" href="{{ route('admin.adedit') }}" style = "text-align: left" >مدیریت آگهی ها</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#" style = "text-align: left" >مدیریت دسته بندیها</a>
+            <a class="nav-link active" href="{{  route('admin.catedit')}}" style = "text-align: left" >مدیریت دسته بندیها</a>
           </li>
         
         <li class="nav-item">
@@ -63,7 +63,7 @@
         <br>
         <br>
         <br>
-        <h5>خوش آمدید</h5>
+        <h5>پنل ادمین</h5>
         {{-- <ul class="list-unstyled components mb-5">
           <li>
             <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">موضوع 1</a>
